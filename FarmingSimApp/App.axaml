@@ -1,0 +1,19 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="FarmingSimApp.App"
+             xmlns:viewLocator="using:FarmingSimApp.Shared.View"
+             RequestedThemeVariant="Dark">
+
+    <Application.DataTemplates>
+        <viewLocator:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+    
+    <Application.Resources>
+        <Color x:Key="ColWindowBackground">#001400</Color>
+    </Application.Resources>
+    
+</Application>
