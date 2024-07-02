@@ -10,10 +10,17 @@
   
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="avares://FarmingSimApp/Styles/TextStyles.axaml" />
+        <StyleInclude Source="avares://FarmingSimApp/Shared/View/Controls/NavigationButton.axaml" />
     </Application.Styles>
     
     <Application.Resources>
         <Color x:Key="ColWindowBackground">#001400</Color>
+        <SolidColorBrush x:Key="BrushPrimaryColor" Color="Orange" />
+        <SolidColorBrush x:Key="BrushBtnDarkBorder" Color="#1E1E1E" />
+        <SolidColorBrush x:Key="BrushMenuSelection" Color="White" Opacity=".2" />
+        <SolidColorBrush x:Key="BrushMenuSelected" Color="White" Opacity=".3" />
+        <FontFamily x:Key="Poppins">avares://FarmingSimApp/Assets/Fonts/Poppins#Poppins</FontFamily>
     </Application.Resources>
     
 </Application>

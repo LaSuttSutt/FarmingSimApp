@@ -1,0 +1,48 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="using:FarmingSimApp.Shared.View.Controls">
+    <Design.PreviewWith>
+        <Panel Margin="10" Background="#353E35" Width="250">
+            <StackPanel>
+                <controls:NavigationButton Content="Kochen" />
+                <controls:NavigationButton Content="Backen" />
+                <controls:NavigationButton Content="Einstellungen" />
+            </StackPanel>
+        </Panel>
+    </Design.PreviewWith>
+    
+    <Style Selector="controls|NavigationButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="2" />
+        
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border BorderBrush="{DynamicResource BrushBtnDarkBorder}"
+                        BorderThickness="2 0 0 2"
+                        Background="{TemplateBinding Background}">
+                    <Border Background="{TemplateBinding HoverBrush}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{TemplateBinding Content}"
+                                       Classes="navigationButtonText"
+                                       FontFamily="{StaticResource Poppins}"
+                                       Margin="12 6 0 5" />
+                        </StackPanel>
+                    </Border>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="controls|NavigationButton:pointerover">
+        <Setter Property="HoverBrush" Value="{DynamicResource BrushMenuSelection}" />
+    </Style>
+
+    <Style Selector="controls|NavigationButton:checked">
+        <Setter Property="BorderBrush" Value="{DynamicResource BrushPrimaryColor}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Background" Value="{DynamicResource BrushMenuSelected}" />
+    </Style>
+</Styles>

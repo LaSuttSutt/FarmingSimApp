@@ -1,0 +1,17 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="TextBlock.navigationButtonText">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontStyle" Value="Oblique" />
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="Black" Opacity=".5" BlurRadius="1" OffsetX="1" OffsetY="1" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+</Styles>
