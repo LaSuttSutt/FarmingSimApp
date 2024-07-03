@@ -1,12 +1,12 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:FarmingSimApp.MainView"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FarmingSimApp.MainView"
         xmlns:controls="clr-namespace:FarmingSimApp.Shared.View.Controls"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="FarmingSimApp.MainView.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
+        x:DataType="local:MainWindowViewModel"
         Icon="/Assets/LS22.ico"
         Title="FarmingSim"
         TransparencyLevelHint="AcrylicBlur"
@@ -17,7 +17,7 @@
         WindowStartupLocation="CenterScreen">
 
     <Design.DataContext>
-        <vm:MainWindowViewModel />
+        <local:MainWindowViewModel />
     </Design.DataContext>
 
     <Panel>
@@ -32,17 +32,32 @@
         </ExperimentalAcrylicBorder>
 
         <Grid RowDefinitions="30, Auto, *">
-
             <Image Grid.Row="0" Source="../Assets/banner.jpg" Stretch="UniformToFill" IsHitTestVisible="False" />
 
             <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0 2 2 0">
                 <Grid ColumnDefinitions="* * *">
-                    <controls:NavigationButton Grid.Column="0" Content="Mod-DB" />
-                    <controls:NavigationButton Grid.Column="1" Content="Mod-Browser" />
-                    <controls:NavigationButton Grid.Column="2" Content="Launcher" />
+                    <controls:NavigationButton 
+                        Grid.Column="0" 
+                        Content="Mod-DB"
+                        IsChecked="True"
+                        Command="{Binding ShowContentView}"
+                        CommandParameter="{Binding ModDbViewModel}"/>
+                    <controls:NavigationButton 
+                        Grid.Column="1" 
+                        Content="Mod-Browser"
+                        Command="{Binding ShowContentView}"
+                        CommandParameter="{Binding ModBrowserViewModel}"/>
+                    <controls:NavigationButton
+                        Grid.Column="2" 
+                        Content="Launcher" 
+                        Command="{Binding ShowContentView}"
+                        CommandParameter="{Binding LauncherViewModel}"/>
                 </Grid>
             </Border>
-
+            
+            <!-- Content Part -->
+            <TransitioningContentControl 
+                Grid.Row="2" Content="{Binding ContentView}" />
         </Grid>
 
     </Panel>
